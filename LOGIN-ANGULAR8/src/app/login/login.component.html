@@ -26,19 +26,19 @@
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="staticEmail">
+                    <input type="text" class="form-control" id="staticEmail" name="username" [(ngModel)]="username">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword">
+                    <input type="password" class="form-control" id="inputPassword" name="password" [(ngModel)]="password">
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <input type="submit" class="form-control" name="" value="Login">
+                    <input type="submit" class="form-control" name="" (click)=doLogin() value="Login">
                 </div>
             </div>
 
