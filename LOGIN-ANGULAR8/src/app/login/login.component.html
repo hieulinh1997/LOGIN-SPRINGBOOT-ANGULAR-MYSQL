@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+
+<body>
+    <!-- <header>
+        <div class="header">
+            <a href="#" class="logo">TASK-LOGIN</a>
+            <div class="header-right">
+                <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+                <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a>
+                <a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
+            </div>
+        </div>
+    </header> -->
+
+    <form class="form-login">
+        <div class="container">
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="staticEmail">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="submit" class="form-control" name="" value="Login">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-8">
+                    <a href="#!" class="forgot-pwd">Forgot password </a>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <!-- ok -->
+    <!-- <div class="login-form">
+        <div class="row">
+            <div class="col-5">
+                <div class="username">
+                    <i class="fa fa-user"></i>
+                    <label class="form-control">Username</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="username">
+                    <i class="fa fa-user"></i>
+                    <input type="text" name="" placeholder="Enter Username" class="form-control">
+                </div>
+                <div class="password">
+                    <i class="fa fa-unlock-alt"></i>
+                    <input type="password" name="" placeholder="Enter password" class="form-control">
+                </div>
+                <input type="submit" name="" value="Login">
+                <div class="extre-sec">
+                    <a href="#!" class="forgot-pwd">Forgot password </a>
+                    <h5>New to out page?
+                        <a href="#!">
+                      Create a new account
+                    </a>
+                    </h5>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+
+                <input type="submit" name="" value="Login">
+                <div class="extre-sec">
+                    <a href="#!" class="forgot-pwd">Forgot password </a>
+                    <h5>New to out page?
+                        <a href="#!">
+                    Create a new account
+                  </a>
+                    </h5>
+
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+    <!-- end ok -->
+
+
+
+    <!-- <div class="container"> -->
+    <!-- <div>
+        User Name : <input type="text" name="username" [(ngModel)]="username">
+        Password : <input type="password" name="password" [(ngModel)]="password">
+        <button (click)=doLogin() class="btn btn-success">
+      Login
+    </button>
+      </div> -->
+    <!-- <form class="form-login">
+        <div class="container">
+            <div class="row ">
+                <div class="col col-lg-2" align="right">
+                    <label class="label-login" for="nameId">Username </label>
+                </div>
+                <div class="col col-lg-6">
+                    <input class="input-login" type="text" name="username" [(ngModel)]="username">
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col col-lg-2" align="left">
+                    <label class="label-login" for="nameId">Password </label>
+                </div>
+                <div class="col col-lg-6">
+                    <input class="input-login" type="password" name="password" [(ngModel)]="password">
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-6 offset-md-3" align="left">
+                    <button (click)=doLogin() class="btn btn-success">
+                  Login
+                </button>
+                </div>
+
+            </div>
+        </div>
+        </form> -->
+    <!-- <form class="form-login">
+        <table align="center">
+            <col width="80">
+            <col width="200">
+
+            <tr>
+                <td><label for="nameId">Username </label></td>
+                <td> <input type="text" class="form-control" id="nameId" name="username" placeholder="username" [(ngModel)]="username"></td>
+            </tr>
+            <tr>
+                <td><label for="nameId">Password </label></td>
+                <td><input type="password" class="form-control" id="nameId" name="password" placeholder="password" [(ngModel)]="password"></td>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" (click)=doLogin() class="form-control" value="Login" background="blue">
+                </td>
+            </tr>
+        </table>
+    </form> -->
+
+
+
+
+</body>
+
+</html>

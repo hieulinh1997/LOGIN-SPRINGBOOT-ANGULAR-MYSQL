@@ -23,14 +23,14 @@ public class RegistrationServiceApplication {
     @Autowired
     private UserRepository repository;
     
-    @PostMapping("/register/api/v1")
+    @PostMapping("/register")
     public String register(@RequestBody User user) {
 //    	user = new User("a","b",1,"c");
         repository.save(user);
         return "Hi " + user.getName() + " your Registration process successfully completed";
     }
     
-    @PostMapping("/login/api/v1/{email}&{pass}")
+    @PostMapping("/login/{email}&{pass}")
 	public Boolean login(@PathVariable String email,@PathVariable String pass){
 
     	System.out.print("\nLogin with pass: "+ pass);
@@ -46,19 +46,19 @@ public class RegistrationServiceApplication {
 
     
     
-    @GetMapping("/getAllUsers/api/v1")
+    @GetMapping("/getAllUsers")
     public List<User> findAllUsers() {
 //    	User user = new User("a","b",1,"c");
 //    	repository.save(user);
         return repository.findAll();
     }
 
-    @GetMapping("/findUser/api/v1/{email}")
+    @GetMapping("/findUser/{email}")
     public List<User> findUser(@PathVariable String email) {
         return repository.findByEmail(email);
     }
 
-    @DeleteMapping("/cancel/api/v1/{id}")
+    @DeleteMapping("/cancel/{id}")
     public List<User> cancelRegistration(@PathVariable int id) {
         repository.deleteById(id);
         return repository.findAll();
