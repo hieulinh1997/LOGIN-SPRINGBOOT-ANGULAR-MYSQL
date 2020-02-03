@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
 
@@ -21,32 +22,49 @@
         </div>
     </header> -->
 
-    <form class="form-login">
+    <form [formGroup]="user" class="form-login" #form="ngForm" (ngSubmit)="doLogin()">
         <div class="container">
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="staticEmail" name="username" [(ngModel)]="username">
+                <div class="col-sm-12" *ngIf="visability" id="errLogin">
+                    <!-- ログインIDもしくはパスワードが違います -->
+                    <div class="col-sm-2">
+                        <i class="fa fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="col-sm-10">
+                        <br>
+                        <span class="span-login-err">ログインIDもしくはパスワードが違います</span>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-4 col-form-label">ログインID</label>
+                <div class="col-sm-8">
+                    <input formControlName="email" type="text" class="form-control" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword" name="password" [(ngModel)]="password">
+                <label for="inputPassword" class="col-sm-4 col-form-label">パスワード</label>
+                <div class="col-sm-8">
+                    <input formControlName="password" type="password" class="form-control" required>
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <input type="submit" class="form-control" name="" (click)=doLogin() value="Login">
+                    <input type="submit" name="" class="smLogin" [disabled]="submitted || !form.valid" value="ログイン">
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-sm-2">
+
                 </div>
                 <div class="col-sm-8">
-                    <a href="#!" class="forgot-pwd">Forgot password </a>
+                    <br>
+                    <a href="#!" class="forgot-pwd">ログインID／パスワードを忘れの方</a>
                 </div>
             </div>
         </div>

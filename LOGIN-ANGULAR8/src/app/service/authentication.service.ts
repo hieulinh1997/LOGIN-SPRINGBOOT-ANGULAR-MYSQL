@@ -15,31 +15,14 @@ export class AuthenticationService {
   constructor(private service: UserRegistrationService) { }
 
 
-  // authenticate(username, password) {
-
-  //   let userData;
-  //   let nameData;
-  //   let ok = 1;
-  //   let resp = this.service.login(username, password);
-  //   let i = 2;
-    
-
-  //   return resp.subscribe((data) => {
-  //     return true
-  //   })
-
-  // }
-
-
   isUserLoggedIn() {
     let user = sessionStorage.getItem('username')
-    // alert('isUserLoggerdIn: '+user)
     return !(user === null)
   }
 
   logOut() {
     sessionStorage.removeItem('username')
-    alert('logout');
+    // alert('logout');
   }
 
   // authenticate(username, password) {

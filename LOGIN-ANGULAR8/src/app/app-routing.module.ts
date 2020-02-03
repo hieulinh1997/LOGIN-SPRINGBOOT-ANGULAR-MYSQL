@@ -8,12 +8,13 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGaurdService } from './service/auth-gaurd.service';
 
 const routes: Routes = [
-  {path:"",redirectTo:"register",pathMatch:"full"},
+  {path:'',redirectTo:"login",pathMatch:"full"},
   // { path: '', component: EmployeeComponent,canActivate:[AuthGaurdService] },
-   {path:"register",component:RegistrationComponent},
+   {path:'register',component:RegistrationComponent},
    { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] },
-   {path:"search",component:SerachDeleteComponent,canActivate:[AuthGaurdService]} //login moi show
+   {path:'search',component:SerachDeleteComponent,canActivate:[AuthGaurdService]}, //login moi show
+  { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] }
+   
 ];
 
 @NgModule({
