@@ -16,17 +16,15 @@ import { User, LoginResponse } from '../user';
 export class LoginComponent implements OnInit {
 
   username = ''
-  // invalidLogin = false
   message: any
-  // err: any
   visability: any
   users: any
   user: FormGroup;
-  id: any
-  emai: any
-  name: any
-  password: any
-  role: any
+  // id: any
+  // emai: any
+  // name: any
+  // password: any
+  // role: any
 
   constructor(private router: Router,
     private loginservice: AuthenticationService, private service: UserRegistrationService,
@@ -37,39 +35,23 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
-    //hash password -> sha256
-    // this.password = sha256(this.user.value.password);
-    // console.log('pass sha256: ' + this.password) 
+
     let info = {email: this.user.value.email, password: sha256(this.user.value.password) };
+    // let info = {email: this.user.value.email, password: (this.user.value.password) };
     let resp = this.http.post("http://localhost/login/api/v1/XXXXXXXXXX", info, this.httpOptions);
     resp.subscribe((data) => {
       if (data == true) {
         this.router.navigate(['search']);
         sessionStorage.setItem('username', this.user.value.email)
         localStorage.setItem('access_token', '');
-        // this.invalidLogin = false
         this.message = data;
       } else {
         this.visability = true;
       }
-      // if(data.status === 200) {
-      //   window.localStorage.setItem('token', data.result.token);
-      //   this.router.navigate(['list-user']);
-      // }else {
-      //   this.invalidLogin = true;
-      //   alert(data.message);
-      // }
+
     });
   }
 
-  // isUserLoggedIn() {
-  //   let user = sessionStorage.getItem('username')
-  //   return !(user === null)
-  // }
-
-  // logOut() {
-  //   sessionStorage.removeItem('username')
-  // }
 
   basePath = 'http://localhost/login/api/v1/XXXXXXXXXX';
   // Http Options
