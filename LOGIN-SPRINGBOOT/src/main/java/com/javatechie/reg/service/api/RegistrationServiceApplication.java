@@ -56,9 +56,9 @@ public class RegistrationServiceApplication {
     	System.out.println("\nPassword nhap vao: "+ pass);
     	
     	String mailData = repository.findByEmail(email).get(0).getEmail();
-    	System.out.print("\n\nEmail trong data: "+ mailData);
+    	System.out.println("\n\nEmail trong data: "+ mailData);
     	String passData = repository.findByEmail(email).get(0).getPassword();
-    	System.out.print("\n\nPasss trong data: "+ passData);
+    	System.out.println("\n\nPasss trong data: "+ passData);
     	
     	
     	if(email.compareTo(mailData) == 0 && pass.equals(passData) ) {

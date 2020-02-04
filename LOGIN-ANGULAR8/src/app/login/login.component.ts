@@ -5,6 +5,7 @@ import { UserRegistrationService } from '../user-registration.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { sha256, sha224 } from 'js-sha256';
 import { retry, catchError } from 'rxjs/operators';
 import { User, LoginResponse } from '../user';
 @Component({
@@ -33,16 +34,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.formBuilder.group({ id: '', email: '', name: '', password: '', role: '' });
-    // console.log('ma hoa pass: ' + btoa(this.password))
-    // console.log('decode pass: ' + window.atob(this.password))
   }
 
   doLogin() {
-
-    // let btoaPassword = btoa(this.user.value.password)
-    // console.log('pass atobPassword: ' + btoaPassword) 
-    // this.user = this.formBuilder.group({ id: '', email: '', name: '', password: '', role: '' });
-    let resp = this.http.post("http://localhost/login/api/v1/XXXXXXXXXX", this.user.value, this.httpOptions);
+    //hash password -> sha256
+    // this.password = sha256(this.user.value.password);
+    // console.log('pass sha256: ' + this.password) 
+    let info = {email: this.user.value.email, password: sha256(this.user.value.password) };
+    let resp = this.http.post("http://localhost/login/api/v1/XXXXXXXXXX", info, this.httpOptions);
     resp.subscribe((data) => {
       if (data == true) {
         this.router.navigate(['search']);
@@ -53,17 +52,24 @@ export class LoginComponent implements OnInit {
       } else {
         this.visability = true;
       }
+      // if(data.status === 200) {
+      //   window.localStorage.setItem('token', data.result.token);
+      //   this.router.navigate(['list-user']);
+      // }else {
+      //   this.invalidLogin = true;
+      //   alert(data.message);
+      // }
     });
   }
 
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
-    return !(user === null)
-  }
+  // isUserLoggedIn() {
+  //   let user = sessionStorage.getItem('username')
+  //   return !(user === null)
+  // }
 
-  logOut() {
-    sessionStorage.removeItem('username')
-  }
+  // logOut() {
+  //   sessionStorage.removeItem('username')
+  // }
 
   basePath = 'http://localhost/login/api/v1/XXXXXXXXXX';
   // Http Options
